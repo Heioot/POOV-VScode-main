@@ -131,7 +131,7 @@ public void quebrar(){
     ArrayList<Lampada> vetor = new ArrayList<Lampada>();
 
     public void mostrar() {
-        String texto = tensao + "V, " + potencia + "W, " +((acesa) ? "Acesa" : "Apagada")
+        String texto = tensao + " V, " + potencia + " W, " +((acesa) ? "Acesa" : "Apagada ")
                                                          +((queimada) ? " ,Queimada" : "")
                                                          +((quebrada) ? " ,Quebrada" : "");
 
