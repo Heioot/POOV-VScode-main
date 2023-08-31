@@ -96,6 +96,6 @@ public class Televisao {
    public void mostrar(){
 
     String mostrar = tamanho + " inch " + canal + volume +((ligada) ? " Ligada " : " Apagada ") + resolucao +((smart) ? " Smart " : " Convencional ");
-    System.out.print(mostrar);
+    System.out.println(mostrar);
    }
 }
