@@ -39,11 +39,11 @@ public class Lampada {
 
 
 //construtor
-    public Lampada(int t, int p, boolean acesa){
-        setTensao(tensao);
-        setPotencia(potencia);
-        this.acesa = acesa;
-    }
+public Lampada(int t, int p, boolean acesa){
+    setTensao(tensao);
+    setPotencia(potencia);
+    this.acesa = acesa;
+}
 
 public void setTensao(int tensao){
     if ((tensao == 110) || (tensao == 220)){
