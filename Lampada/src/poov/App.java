@@ -1,7 +1,19 @@
+package poov;
 
 public class App {
 
     public static void main(String[] args) throws Exception {
+
+
+        LampadaColorida lc = new LampadaColorida();
+
+        lc.mostrar();
+        lc.setCor("azul");
+        lc.mostrar();
+
+
+
+
         
         Lampada l1 = new Lampada();
         l1.mostrar();
