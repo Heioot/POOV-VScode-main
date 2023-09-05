@@ -34,11 +34,11 @@ public class Produto {
         this.nome = nome;
         this.descricao = descricao;
         this.marca = marca;
-        this.precoCompra = precoCompra;
+        setPrecoCompra(precoCompra);
         this.dataCompra = dataCompra;
         this.dataValidade = dataValidade;
-        this.quantMinima = quantMinima;
-        this.quantAtual = quantAtual;
+        setQuantMinima(quantMinima);
+        setQuantAtual(quantAtual);
         this.situacao = situacao;
     }
 
@@ -79,6 +79,9 @@ public class Produto {
     }
 
     public void setPrecoCompra(BigDecimal precoCompra) {
+        if (precoCompra.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("O preco de compra nao pode ser negativo");
+        }
         this.precoCompra = precoCompra;
     }
 
@@ -103,6 +106,9 @@ public class Produto {
     }
 
     public void setQuantMinima(int quantMinima) {
+        if (quantMinima < 0) {
+            throw new IllegalArgumentException("A quantidade minima nao pode ser negativa");
+        }
         this.quantMinima = quantMinima;
     }
 
@@ -111,6 +117,9 @@ public class Produto {
     }
 
     public void setQuantAtual(int quantAtual) {
+        if (quantAtual < 0) {
+            throw new IllegalArgumentException("A quantidade atual nao pode ser negativa");
+        }
         this.quantAtual = quantAtual;
     }
 
@@ -159,13 +168,14 @@ public class Produto {
     }
 
     public void mostrar() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         System.out.println("Codigo: " + codigo);
         System.out.println("Nome: " + nome);
         System.out.println("Descricao: " + descricao);
         System.out.println("Marca: " + marca);
         System.out.println("Preco de compra: " + precoCompra);
-        System.out.println("Data da compra: " + dataCompra);
-        System.out.println("Data de validade: " + dataValidade);
+        System.out.println("Data da compra: " + dataCompra.format(dtf));
+        System.out.println("Data de validade: " + dataValidade.format(dtf));
         System.out.println("Quantidade minima: " + quantMinima);
         System.out.println("Quantidade atual: " + quantAtual);
         System.out.println("Situacao: " + situacao);
