@@ -16,7 +16,7 @@ public class Produto {
     private LocalDate dataValidade;
     private int quantMinima;
     private int quantAtual;
-    private int situacao;
+    private Situacao situacao;
 
     public Produto() {
         codigo = 0L;
@@ -27,11 +27,11 @@ public class Produto {
         dataCompra = LocalDate.now();
         dataValidade = LocalDate.now();
         quantMinima = quantAtual = 0;
-        situacao = 0;
+        situacao = Situacao.VALIDO;
     }
 
     public Produto(long codigo, String nome, String descricao, String marca, BigDecimal precoCompra,
-            LocalDate dataCompra, LocalDate dataValidade, int quantMinima, int quantAtual, int situacao) {
+            LocalDate dataCompra, LocalDate dataValidade, int quantMinima, int quantAtual, Situacao situacao) {
         this.codigo = codigo;
         this.nome = nome;
         this.descricao = descricao;
@@ -125,11 +125,11 @@ public class Produto {
         this.quantAtual = quantAtual;
     }
 
-    public int getSituacao() {
+    public Situacao getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(int situacao) {
+    public void setSituacao(Situacao situacao) {
         this.situacao = situacao;
     }
 
@@ -144,7 +144,9 @@ public class Produto {
     public Produto obteProduto() {
         Produto novo = new Produto();
         Scanner s = new Scanner(System.in);
+        int entrada = 0;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        Situacao situacoes[] = Situacao.values();
         System.out.print("Digite o codigo: ");
         novo.setCodigo(Long.parseLong(s.nextLine()));
         System.out.print("Digite o nome: ");
@@ -163,8 +165,27 @@ public class Produto {
         novo.setQuantMinima(Integer.parseInt(s.nextLine()));
         System.out.print("Quantidade atual: ");
         novo.setQuantAtual(Integer.parseInt(s.nextLine()));
-        System.out.print("Situacao: ");
-        novo.setSituacao(Integer.parseInt(s.nextLine()));
+        do {
+            System.out.println("Escolha a situacao");
+            for (int cont = 1; cont <= situacoes.length; cont++) {
+                System.out.println(cont + " - " + situacoes[cont-1].getDescricao());
+            }
+            // System.out.println("1 - Válido");
+            // System.out.println("2 - Inválido");
+            // System.out.println("3 - Descontinuado");
+            System.out.print("Situacao: ");
+            entrada = Integer.parseInt(s.nextLine());
+            switch(entrada) {
+                case 1: novo.setSituacao(Situacao.VALIDO);
+                        break;
+                case 2: novo.setSituacao(Situacao.INVALIDO);
+                        break;
+                case 3: novo.setSituacao(Situacao.DESCONTINUADO);
+                        break;
+                default: System.out.println("Valor inválido");
+                        break;
+            }
+        } while (entrada < 1 || entrada > 3);
         s.close();
         return novo;
     }
@@ -180,7 +201,7 @@ public class Produto {
         System.out.println("Data de validade: " + dataValidade.format(dtf));
         System.out.println("Quantidade minima: " + quantMinima);
         System.out.println("Quantidade atual: " + quantAtual);
-        System.out.println("Situacao: " + situacao);
+        System.out.println("Situacao: " + situacao.getDescricao());
     }
 
 }
