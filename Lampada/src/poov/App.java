@@ -8,7 +8,6 @@ public class App {
         // // lc.mostrar();
         lc.setCor("Azul");
         lc.mostrar();
-
         lc.toString();
 
         // System.out.println(lc);
