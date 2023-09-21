@@ -1,5 +1,9 @@
 package poov;
 
+import poov.AutomovelLuxo;
+import poov.AutomovelBasico;
+
+
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -26,7 +30,18 @@ public class App {
         AutomovelBasico ab2 = new AutomovelBasico("azul", "fusca", "gasolina", true, false, true);
         AutomovelBasico ab3 = new AutomovelBasico("azul", "fusca", "gasolina", true, true, false);
 
+        AutomovelLuxo al3 = new AutomovelLuxo("azul", "fusca", "gasolina", true, true, true, true, true);
+
+
+
         if (ab1.equals(ab2)){
+            System.out.println("iguais");
+        }
+        else{
+            System.out.println("diferentes");
+        }
+
+        if(al3.equals(ab1)){
             System.out.println("iguais");
         }
         else{
