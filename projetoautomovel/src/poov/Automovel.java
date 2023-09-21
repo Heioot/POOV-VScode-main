@@ -1,21 +1,22 @@
 package poov;
 
 public class Automovel {
+
     private String cor;
     private String modelo;
-    private String combustivel;
-
-    // Construtores
+    private String combustivel;  // Gasolina GASOLINA gasolina GAS
+    
     public Automovel() {
-    }
-
-    public Automovel(String cor, String modelo, String combustivel) {
         cor = "sem cor";
         modelo = "sem modelo";
         combustivel = "sem combustivel";
     }
 
-    // setters and getters
+    public Automovel(String cor, String modelo, String combustivel) {
+        this.cor = cor;
+        this.modelo = modelo;
+        this.combustivel = combustivel;
+    }
 
     public String getCor() {
         return cor;
@@ -43,23 +44,17 @@ public class Automovel {
 
     public double getPreco() {
         switch (combustivel) {
-            case "gasolina":
-                return 20000;
-            case "alcool":
-                return 20000;
-
-            case "gas":
-                return 20000;
-            default:
-                return -1;
-
+            case "gasolina": return 20000;
+            case "alcool": return 17000;
+            case "diesel": return 25000;
+            case "gas": return 30000;
+            default: return -1;
         }
     }
 
-    // exibir
     @Override
     public String toString() {
-        return "Automovel [cor=" + cor + ", modelo=" + modelo + ", combustivel=" + combustivel + "]";
+        return "cor: " + cor + "\nmodelo: " + modelo + "\ncombustivel: " + combustivel;
     }
 
     @Override
@@ -98,5 +93,7 @@ public class Automovel {
             return false;
         return true;
     }
+
+    
 
 }

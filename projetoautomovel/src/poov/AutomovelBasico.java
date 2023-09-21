@@ -6,8 +6,6 @@ public class AutomovelBasico extends Automovel {
     private boolean limpadorTraseiro;
     private boolean radioFM;
 
-
-
     public AutomovelBasico(String cor, String modelo, String combustivel, boolean retrovisorPassageiro,
             boolean limpadorTraseiro, boolean radioFM) {
         super(cor, modelo, combustivel);
@@ -16,65 +14,50 @@ public class AutomovelBasico extends Automovel {
         this.radioFM = radioFM;
     }
 
-
-
     public boolean isRetrovisorPassageiro() {
         return retrovisorPassageiro;
     }
-
-
 
     public void setRetrovisorPassageiro(boolean retrovisorPassageiro) {
         this.retrovisorPassageiro = retrovisorPassageiro;
     }
 
-
-
     public boolean isLimpadorTraseiro() {
         return limpadorTraseiro;
     }
-
-
 
     public void setLimpadorTraseiro(boolean limpadorTraseiro) {
         this.limpadorTraseiro = limpadorTraseiro;
     }
 
-
-
     public boolean isRadioFM() {
         return radioFM;
     }
-
-
 
     public void setRadioFM(boolean radioFM) {
         this.radioFM = radioFM;
     }
 
-
-    public double getPreco(){
+    @Override
+    public double getPreco() {
         double preco = super.getPreco();
-        if (retrovisorPassageiro){
-            preco += 1000;
+        if (retrovisorPassageiro) {
+            preco += 100;
         }
-        if (limpadorTraseiro){
-            preco += 500;
+        if (limpadorTraseiro) {
+            preco += 250;
         }
-        if (radioFM){
-            preco += 2000;
+        if (radioFM) {
+            preco += 300;
         }
         return preco;
     }
 
-
     @Override
     public String toString() {
-        return super.toString() + "AutomovelBasico [retrovisorPassageiro=" + retrovisorPassageiro + ", limpadorTraseiro="
-                + limpadorTraseiro + ", radioFM=" + radioFM + "]";
+        return super.toString() + "\nretrovisorPassageiro: " + retrovisorPassageiro + "\nlimpadorTraseiro: " + limpadorTraseiro
+                + "\nradioFM: " + radioFM;
     }
-
-
 
     @Override
     public int hashCode() {
@@ -85,8 +68,6 @@ public class AutomovelBasico extends Automovel {
         result = prime * result + (radioFM ? 1231 : 1237);
         return result;
     }
-
-
 
     @Override
     public boolean equals(Object obj) {
@@ -105,6 +86,5 @@ public class AutomovelBasico extends Automovel {
             return false;
         return true;
     }
-
 
 }
