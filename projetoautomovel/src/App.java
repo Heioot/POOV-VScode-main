@@ -44,11 +44,16 @@ public class App {
         // }
 
         AutomovelLuxo al1 = new AutomovelLuxo("vermelho", "Renault", "gasolina", true, true, true, true, true, true);
-        System.out.println(al1);
-        System.out.println(al1.getPreco());
+        // System.out.println(al1);
+        // System.out.println(al1.getPreco());
+
+
 
         AutomovelLuxo al2 = new AutomovelLuxo("vermelho", "Renault", "gasolina", true, true, true, true, true, true);
         AutomovelLuxo al3 = new AutomovelLuxo("amarelo", "Renault", "alcool", true, false, true, false, false, false);
+
+        String representacao = al3.toString();
+        System.out.println(" representação:" +  representacao);
 
         if (al1.equals(al2)) {
             System.out.println("Iguais");
